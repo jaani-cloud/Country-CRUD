@@ -41,7 +41,7 @@ public class CountryRepo : ICountryRepo
         var country = _context.countries.Find(id);
         if (country == null)
         {
-            return new Country();
+            return null;
         }
         return country;
 
@@ -52,7 +52,7 @@ public class CountryRepo : ICountryRepo
         var country = _context.countries.FirstOrDefault(c => c.Name.ToLower() == name.ToLower());
         if (country == null)
         {
-            return new Country();
+            return null;
         }
         return country;
     }
