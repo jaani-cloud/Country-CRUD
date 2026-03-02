@@ -1,5 +1,6 @@
 
 using Infra.Data;
+using Infra.Repos.Countries;
 using Microsoft.EntityFrameworkCore;
 
 namespace APIl;
@@ -12,7 +13,7 @@ public class Program
 
         // Add services to the container.
 
-        builder.Services.AddControllers(); 
+        builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
@@ -20,7 +21,7 @@ public class Program
         var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
         builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(connectionString));
 
-
+        builder.Services.AddScoped<ICountryRepo, CountryRepo>();
 
         var app = builder.Build();
 
