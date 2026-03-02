@@ -8,6 +8,6 @@ public interface ICountryRepo
     public Country GetById(int id);
     public Country GetByName(string name);
     public string Add(Country country);
-    public string Update(Country country,int id);
+    public string Update(Country country);
     public string Delete(int id);
 }

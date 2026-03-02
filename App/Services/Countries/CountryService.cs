@@ -79,7 +79,7 @@ public class CountryService : ICountryService
         }
 
         country.Name = input.Name;
-        _countryRepo.Update(country,id);
+        _countryRepo.Update(country);
         return $"Country with id {id} updated successfully.";
     }
 }

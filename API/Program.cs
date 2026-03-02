@@ -1,4 +1,5 @@
 
+using App.Services.Countries;
 using Infra.Data;
 using Infra.Repos.Countries;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +23,7 @@ public class Program
         builder.Services.AddDbContext<DataContext>(options => options.UseSqlServer(connectionString));
 
         builder.Services.AddScoped<ICountryRepo, CountryRepo>();
+        builder.Services.AddScoped<ICountryService, CountryService>();
 
         var app = builder.Build();
 

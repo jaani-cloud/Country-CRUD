@@ -57,18 +57,9 @@ public class CountryRepo : ICountryRepo
         return country;
     }
 
-    public string Update(Country country, int id)
+    public string Update(Country country)
     {
-        var countryToUpdate = _context.countries.Find(id);
-
-        if (countryToUpdate == null)
-        {
-            return "Country not found";
-        }
-
-        countryToUpdate.Name = country.Name;
-
-        _context.countries.Update(countryToUpdate);
+        _context.countries.Update(country);
         _context.SaveChanges();
 
         return "Country updated successfully.";
